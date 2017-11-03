@@ -25,12 +25,13 @@ app.get('/repos', function(req, res) {
 
 // POST REQUEST HERE
 app.post('/repos', function(req, res) {
-  let queryStr = `insert into info (user, repourl) VALUES ('${req.body.user}', '${req.body.repourl}')`
-  db.query(queryStr, function(err, results) {
-    if(err) { throw err };
-    res.status(200);
-    res.end();
-  })
+  console.log('RECEIVED BY SERVER ', req.body);
+  // let queryStr = `insert into info (user, repourl) VALUES ('${req.body.user}', '${req.body.repourl}')`
+  // db.query(queryStr, function(err, results) {
+  //   if(err) { throw err };
+  //   res.status(200);
+  //   res.end();
+  // })
 });
 
 
