@@ -1,6 +1,7 @@
 const db = require('../db/index');
 const express = require('express');
 const parser = require('body-parser');
+const github = require('./githubhelper')
 
 let app = express();
 let PORT = 3000;
@@ -26,6 +27,7 @@ app.get('/repos', function(req, res) {
 // POST REQUEST HERE
 app.post('/repos', function(req, res) {
   console.log('RECEIVED BY SERVER ', req.body);
+  github.getReposByUsername();
   // let queryStr = `insert into info (user, repourl) VALUES ('${req.body.user}', '${req.body.repourl}')`
   // db.query(queryStr, function(err, results) {
   //   if(err) { throw err };
