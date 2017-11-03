@@ -6,12 +6,13 @@ let app = express();
 let PORT = 3000;
 
 // Connect server to client below;
-app.use(express.static(__dirname))
+app.use(express.static(__dirname + '/../client/public'))
   .use(parser.json())
   .use(parser.urlencoded());
 
 // GET REQUEST HERE
 app.get('/repos', function(req, res) {
+  console.log(__dirname + '/../client/public');
   let queryStr = 'select * from info'
   db.query(queryStr, function(err, results) {
     if(err) { throw err };
